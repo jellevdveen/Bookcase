@@ -664,7 +664,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "Bookcase",
+											"text": "bookcase.Bookcase",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -5731,7 +5731,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Bookcase",
+					"name": "bookcase.Bookcase",
 					"visibility": "public"
 				},
 				{
@@ -6220,7 +6220,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "Bookcase",
+											"text": "bookcase.Bookcase",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -6707,7 +6707,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+ArrayList Bookcase",
+											"text": "+ArrayList bookcase.Bookcase",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
 										}
@@ -8621,7 +8621,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Bookcase",
+					"name": "bookcase.Bookcase",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -8836,7 +8836,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFT5bn1zTgMMw8="
 							},
-							"name": "ArrayList Bookcase",
+							"name": "ArrayList bookcase.Bookcase",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
