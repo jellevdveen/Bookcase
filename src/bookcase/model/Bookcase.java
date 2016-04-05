@@ -1,4 +1,4 @@
-package bookcase;
+package bookcase.model;
 
 /**
  * Created by Kyra on 05/04/2016.
