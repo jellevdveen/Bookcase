@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19f9e277-70e2-45cb-b5d2-85e13e2a5138" name="Default" comment="">
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+=======
+>>>>>>> db9e17d55fa67595c28d361d517024f790a62566
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Bookcase.iws" />
@@ -166,6 +169,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< HEAD
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -184,6 +188,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+=======
+>>>>>>> db9e17d55fa67595c28d361d517024f790a62566
               <option name="myItemId" value=".idea" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -614,9 +620,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1459851381595</updated>
+<<<<<<< HEAD
       <workItem from="1459851383698" duration="188000" />
       <workItem from="1459851628000" duration="360000" />
       <workItem from="1459852017298" duration="20000" />
+=======
+      <workItem from="1459851383698" duration="1440000" />
+>>>>>>> db9e17d55fa67595c28d361d517024f790a62566
     </task>
     <task id="LOCAL-00001" summary="First java file :)">
       <created>1459851790771</created>
@@ -629,7 +639,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="568000" />
+=======
+    <option name="totallyTimeSpent" value="1440000" />
+>>>>>>> db9e17d55fa67595c28d361d517024f790a62566
   </component>
   <component name="ToolWindowManager">
     <frame x="2636" y="121" width="1938" height="1060" extended-state="0" />
@@ -685,6 +699,7 @@
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
+<<<<<<< HEAD
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/bookcase/Bookcase.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -774,4 +789,6 @@
       </provider>
     </entry>
   </component>
+=======
+>>>>>>> db9e17d55fa67595c28d361d517024f790a62566
 </project>
