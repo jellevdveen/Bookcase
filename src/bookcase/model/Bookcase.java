@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by Kyra on 05/04/2016.
  */
 public class Bookcase {
-    private ArrayList<Book> bookcaseBooks = new ArrayList<Book>();
+    private ArrayList<Plank> bookcasePlanks = new ArrayList<Plank>();
     private String name = "";
 
     // constructors, perhaps not all required
@@ -17,26 +17,18 @@ public class Bookcase {
         this();
         this.name = name;
     }
-    public Bookcase(String name, ArrayList<Book> importBookList) {
+    public Bookcase(String name, ArrayList<Plank> importPlankList) {
         this(name);
-        this.bookcaseBooks = importBookList;
+        this.bookcaseBooks = importPlankList;
     }
 
     // getters
     public String getName(){
         return this.name;
     }
-    public ArrayList<Book> getBookcaseBooks(){return bookcaseBooks;}
+    public ArrayList<Plank> getBookcasePlanks(){return bookcasePlanks;}
 
     // setters
     public void setName(){this.name = name;}
-    // don't think we need a setter for book-list
 
-    public void addBook(Book addedBook) {
-        if (this.bookcaseBooks.contains(addedBook)) {
-            // todo geef error
-        } else {
-            this.bookcaseBooks.add(addedBook);
-        }
-    }
 }
