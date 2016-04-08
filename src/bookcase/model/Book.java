@@ -4,7 +4,7 @@ package bookcase.model;
  * Created by Kyra on 05/04/2016.
  */
 public class Book {
-    private long isbn;
+    private ISBN isbnNumber;
     private String title;
     private String author;
 
@@ -22,9 +22,9 @@ public class Book {
 
 
     // full constructor
-    public Book (long isbn, String title, String author, int height, int thickness, int width) {
+    public Book (String isbn, String title, String author, int height, int thickness, int width) {
         this.author = author;
-        this.isbn = isbn;
+        this.isbnNumber = new ISBN(isbn);
         this.title = title;
         this.orientation = Orientation.SPINE;
 
@@ -46,7 +46,7 @@ public class Book {
     }
 
     // constructor with default values for book size
-    public Book (long isbn, String title, String author) {
+    public Book (String isbn, String title, String author) {
         this(isbn, title, author, defaultHeight, defaultThickness, defaultWidth);
     }
 
@@ -90,8 +90,14 @@ public class Book {
     public int getWidth() {
         return this.width;
     }
+    public Orientation getOrientation() {
+        return this.orientation;
+    }
 
-
+    // setters
+    public void setOrientation(Orientation O) {
+        this.orientation = O;
+    }
 
 
 
@@ -104,7 +110,7 @@ public class Book {
     @Override
     public boolean equals(Object O) {
         if (O instanceof Book) {
-            if (((Book) O).isbn == this.isbn) {
+            if (((Book) O).isbnNumber.equals(this.isbnNumber)) {
                 return true;
             }
         }
@@ -114,7 +120,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return (this.title + " " + this.author);
+        return (this.author + " - " + this.title + "\n");
     }
 
 }

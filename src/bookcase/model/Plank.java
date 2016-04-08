@@ -48,12 +48,12 @@ public class Plank {
         if (height > minHeight) {
             this.height = height;
         } else {
-            // TODO return foutmelding
+            // TODO Can't resize plank error!
         }
     }
     public void setWidth(int width) {
-        if (width < getBooksWidth()) {
-            // TODO Error!
+        if (width < getBooksThickness()) {
+            // TODO Can't resize plank error!
         } else {
             this.width = width;
         }
@@ -62,20 +62,43 @@ public class Plank {
 
 
     public void addBook(Book addedBook) {
-        int totalBooksWidth = getBooksWidth();
-        if ((totalBooksWidth + addedBook.getWidth()) < this.width) {
+        // TODO what to do when books taller than plank height are added? auto resize plank? refuse addition?
+
+        if ((addedBook.getOrientation() == Orientation.SPINE) && ((getBooksThickness() + addedBook.getThickness()) < this.width)) {
+            this.plankBooks.add(addedBook);
+        } else if ((addedBook.getOrientation() == Orientation.COVER) && ((getBooksThickness() + addedBook.getWidth()) < this.width)) {
             this.plankBooks.add(addedBook);
         } else {
             // TODO error, can't add, plank not wide enough
         }
     }
 
-    public int getBooksWidth(){
-        int totalBooksWidth = 0;
+    public int getBooksThickness(){
+        int totalBooksThickness = 0;
         for (Book b : plankBooks) {
-            totalBooksWidth += b.getWidth();
+            if (b.getOrientation() == Orientation.SPINE) {
+                totalBooksThickness += b.getThickness();
+            } else {
+                totalBooksThickness += b.getWidth();
+            }
         }
-
-        return totalBooksWidth;
+        return totalBooksThickness;
     }
+
+    public ArrayList<Book> getBooksFromPlank() {
+        return plankBooks;
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder returnString = new StringBuilder("== Plank ==\n");
+        for (Book b : plankBooks) {
+            returnString.append(b);
+        }
+        return returnString.toString();
+    }
+
+
+
 }

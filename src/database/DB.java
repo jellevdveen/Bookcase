@@ -62,7 +62,7 @@ public class DB implements DBConstants {
                 String title = resultSet.getString(resultSet.findColumn(DBConstants.BOOK_TITLE));
                 String author = resultSet.getString(resultSet.findColumn(DBConstants.BOOK_AUTHOR));
                 Long isbn = Long.parseLong(resultSet.getString(resultSet.findColumn(DBConstants.ISBN)));
-                allBooks.add(new Book(isbn, title, author));
+                // allBooks.add(new Book(isbn, title, author));
             }
         }
         return null;

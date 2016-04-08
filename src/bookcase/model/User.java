@@ -6,10 +6,10 @@ import java.util.ArrayList;
  * Created by Kyra on 05/04/2016.
  */
 public class User {
-    private ArrayList<Bookcase> bookcaseList = new ArrayList<Bookcase>();
+    private ArrayList<Bookcase> bookcaseList;
     private String name = "";
 
-    public User() {}
+    public User() {bookcaseList = new ArrayList<Bookcase>();}
 
     // getters
     public String getName(){return name;}
@@ -33,7 +33,8 @@ public class User {
         if (this.name.equals("")){
             return null;
         } else {
-            // todo this.bookcaseList = ....import Bookcase-list from database
+            // TODO this.bookcaseList = ....import Bookcase-list from database
+
             return this.bookcaseList;
         }
     }
@@ -48,6 +49,11 @@ public class User {
 
     public static void main(String[] args) {
 
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
     }
 }
 
