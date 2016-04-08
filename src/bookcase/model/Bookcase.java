@@ -50,7 +50,6 @@ public class Bookcase {
         }
     }
 
-
     public void addPlank() {
         bookcasePlanks.add(new Plank(this.width));
     }

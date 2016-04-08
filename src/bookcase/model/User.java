@@ -21,6 +21,7 @@ public class User {
     public void loginUser(String name, String passHash){
         boolean validLogin = (name.equals("Kyra") && passHash.equals("Jelle"));
             // add function for above line
+
         if (validLogin) {
             this.name = name;
             retrieveBookcases();
@@ -49,3 +50,4 @@ public class User {
 
     }
 }
+

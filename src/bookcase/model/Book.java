@@ -100,6 +100,7 @@ public class Book {
 
     // voor Kyra, als je dit leest waardeer ik dat zeer!
     // equals method to check whether book is in bookcase-arraylist
+
     @Override
     public boolean equals(Object O) {
         if (O instanceof Book) {
