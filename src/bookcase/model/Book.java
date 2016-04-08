@@ -51,6 +51,35 @@ public class Book {
     }
 
 
+
+    // method for getting a book from database based on isbn
+    public static Book getBook(String isbn) {
+        Book b;
+        if (ISBN.validateISBN(isbn)) {
+            b = null;// TODO call database class to get book
+        }  else {
+            // TODO give nonexisting isbn message
+            b = null;
+        }
+        return b;
+    }
+
+    // method for making new book in database
+    public static boolean addBookToDatabase(String isbn, String title, String author, int height, int thickness, int width) {
+        if (ISBN.validateISBN(isbn)) {
+            return true; // DB.addBook(isbn, title, author, height, thickness, width, null) final 'null' for image;
+        } else {
+            return false;
+        }
+    }
+
+
+
+
+
+
+
+
     // getters
     public int getHeight() {
         return this.height;
@@ -65,7 +94,7 @@ public class Book {
 
 
 
-    public static book
+
 
 
 

@@ -16,9 +16,11 @@ public class User {
     public ArrayList<Bookcase> getBookcaseList(){return bookcaseList;}
 
     // setters
+
+
     public void loginUser(String name, String passHash){
         boolean validLogin = (name.equals("Kyra") && passHash.equals("Jelle"));
-
+            // add function for above line
         if (validLogin) {
             this.name = name;
             retrieveBookcases();
@@ -36,19 +38,14 @@ public class User {
     }
 
     public void addBookcase(String name) {
-        this.bookcaseList.add(new Bookcase(name));
+        this.bookcaseList.add(new Bookcase(name, 80));
+    }
+    public void addBookcase(String name, int width) {
+        this.bookcaseList.add(new Bookcase(name, width));
     }
 
+
     public static void main(String[] args) {
-        User activeUser = new User();
-        activeUser.loginUser("Kyra", "Jelle");
-        activeUser.addBookcase("Nice Bookcase");
 
-        Bookcase activeCase = activeUser.getBookcaseList().get(0);
-        activeCase.addBook(new Book(1616161616161l, "TestBook", "TestAuthor"));
-
-        for (Book b : activeCase.getBookcaseBooks()) {
-            System.out.println(b);
-        }
     }
 }
