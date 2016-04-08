@@ -35,7 +35,7 @@ public class Plank {
     }
 
 
-
+    // setters
     public void setHeight(int height) {
         int minHeight = 0;
         for (Book b : plankBooks) {
@@ -59,6 +59,10 @@ public class Plank {
         }
     }
 
+    // getters
+    public ArrayList<Book> getBooksFromPlank() {
+        return plankBooks;
+    }
 
 
     public void addBook(Book addedBook) {
@@ -73,6 +77,31 @@ public class Plank {
         }
     }
 
+    public void rotateBook(int index) {
+        if ((index < this.plankBooks.size()) && (index >= 0)) {
+
+            int difference = this.plankBooks.get(index).getWidth() - this.plankBooks.get(index).getThickness();
+
+            if (this.plankBooks.get(index).getOrientation() == Orientation.SPINE) {
+                if ((getBooksThickness() + difference) < this.width) {
+                    this.plankBooks.get(index).setOrientation(Orientation.COVER);
+                    return;
+                }
+            } else {
+                if ((getBooksThickness() - difference) < this.width) {
+                    this.plankBooks.get(index).setOrientation(Orientation.SPINE);
+                    return;
+                }
+            }
+        }
+
+        // TODO Can't rotate book error!
+
+
+    }
+
+
+
     public int getBooksThickness(){
         int totalBooksThickness = 0;
         for (Book b : plankBooks) {
@@ -85,9 +114,7 @@ public class Plank {
         return totalBooksThickness;
     }
 
-    public ArrayList<Book> getBooksFromPlank() {
-        return plankBooks;
-    }
+
 
 
     @Override

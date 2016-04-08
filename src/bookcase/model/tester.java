@@ -35,10 +35,23 @@ public class Tester {
 
 
         System.out.println(KyraJelle + "\n" + KyraJelle.getBookcaseList().get(0));
+
         for (Book B : KyraJelle.getBookcaseList().get(0).getBookcasePlanks().get(0).getBooksFromPlank()) {
             System.out.println(B.getOrientation());
         }
 
+        System.out.println("\n");
+
+        KyraJelle.getBookcaseList().get(0).getBookcasePlanks().get(0).rotateBook(0);
+        KyraJelle.getBookcaseList().get(0).getBookcasePlanks().get(0).rotateBook(1);
+        KyraJelle.getBookcaseList().get(0).getBookcasePlanks().get(0).rotateBook(2);
+        KyraJelle.getBookcaseList().get(0).getBookcasePlanks().get(0).rotateBook(3);
+        KyraJelle.getBookcaseList().get(0).getBookcasePlanks().get(0).rotateBook(4);
+        KyraJelle.getBookcaseList().get(0).getBookcasePlanks().get(0).rotateBook(5);
+
+        for (Book B : KyraJelle.getBookcaseList().get(0).getBookcasePlanks().get(0).getBooksFromPlank()) {
+            System.out.println(B.getOrientation());
+        }
 
 
 
