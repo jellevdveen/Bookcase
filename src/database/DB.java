@@ -6,16 +6,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+
+import bookcase.model.*;
 
 /**
  * Created by Kyra on 05/04/2016.
  */
-public class DB {
+public class DB implements DBConstants {
 
     private Connection connection = null;
     private Statement statement = null;
     private PreparedStatement prepStatement = null;
-    private ResultSet resultSet = null;
 
     public void readDataBase() {
         try {
@@ -24,9 +26,8 @@ public class DB {
                     "jdbc:mysql://localhost:3456/bookcase?" +
                             "user=bookcase&password=Ballerup2750!");
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("select * from user");
 
-            writeResultSet(resultSet);
+            getAllBooks();
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -39,15 +40,40 @@ public class DB {
         }
     }
 
-    private void writeResultSet(ResultSet resultSet) throws SQLException {
+
+
+    public ArrayList<Book> getAllBooks() throws SQLException {
         // ResultSet is initially before the first data set
+        ArrayList<Book> allBooks = new ArrayList<>();
+
+        ResultSet resultSet = statement.executeQuery("select * from book");
+
         while (resultSet.next()) {
             // It is possible to get the columns via name
             // also possible to get the columns via the column number
             // which starts at 1
             // e.g. resultSet.getSTring(2);
-            System.out.println(resultSet.getString(2));
+            int rowcount = 0;
+            if (resultSet.last()) {
+                rowcount = resultSet.getRow();
+                resultSet.beforeFirst(); // not rs.first() because the rs.next() below will move on, missing the first element
+            }
+            while (resultSet.next()) {
+                String title = resultSet.getString(resultSet.findColumn(DBConstants.BOOK_TITLE));
+                String author = resultSet.getString(resultSet.findColumn(DBConstants.BOOK_AUTHOR));
+                Long isbn = Long.parseLong(resultSet.getString(resultSet.findColumn(DBConstants.ISBN)));
+                allBooks.add(new Book(isbn, title, author));
+            }
         }
+        return null;
+    }
+
+    public void addBook() {
+
+    }
+
+    public void addUser() {
+
     }
 
     public static void main(String[] args) {
