@@ -68,8 +68,11 @@ public class DB implements DBConstants {
         return null;
     }
 
-    public void addBook() {
-
+    public boolean addBook(long isbn, String title, String author, int height, int thickness, int width, Object cover) {
+        String strISBN = String.valueOf(isbn);
+        // if ISBN already in database
+        return false;
+        // else: add book to database
     }
 
     public void addUser() {
