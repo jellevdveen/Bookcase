@@ -38,8 +38,8 @@ public class Bookcase {
     }
     public void setWidth(int width) {
         for (Plank p : bookcasePlanks) {
-            if (p.getBooksWidth() > width) {
-                // TODO give error!
+            if (p.getBooksThickness() > width) {
+                // TODO Can't resize bookcase error!
                 return;
             }
         }
@@ -54,6 +54,14 @@ public class Bookcase {
         bookcasePlanks.add(new Plank(this.width));
     }
 
+    @Override
+    public String toString() {
+        StringBuilder returnString = new StringBuilder(this.name + "\n");
+        for (Plank p : bookcasePlanks) {
+            returnString.append(p);
+        }
+        return returnString.toString();
 
+    }
 
 }

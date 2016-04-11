@@ -35,7 +35,7 @@ public class Plank {
     }
 
 
-
+    // setters
     public void setHeight(int height) {
         int minHeight = 0;
         for (Book b : plankBooks) {
@@ -48,34 +48,84 @@ public class Plank {
         if (height > minHeight) {
             this.height = height;
         } else {
-            // TODO return foutmelding
+            // TODO Can't resize plank error!
         }
     }
     public void setWidth(int width) {
-        if (width < getBooksWidth()) {
-            // TODO Error!
+        if (width < getBooksThickness()) {
+            // TODO Can't resize plank error!
         } else {
             this.width = width;
         }
     }
 
+    // getters
+    public ArrayList<Book> getBooksFromPlank() {
+        return plankBooks;
+    }
 
 
     public void addBook(Book addedBook) {
-        int totalBooksWidth = getBooksWidth();
-        if ((totalBooksWidth + addedBook.getWidth()) < this.width) {
+        // TODO what to do when books taller than plank height are added? auto resize plank? refuse addition?
+
+        if ((addedBook.getOrientation() == Orientation.SPINE) && ((getBooksThickness() + addedBook.getThickness()) < this.width)) {
+            this.plankBooks.add(addedBook);
+        } else if ((addedBook.getOrientation() == Orientation.COVER) && ((getBooksThickness() + addedBook.getWidth()) < this.width)) {
             this.plankBooks.add(addedBook);
         } else {
             // TODO error, can't add, plank not wide enough
         }
     }
 
-    public int getBooksWidth(){
-        int totalBooksWidth = 0;
-        for (Book b : plankBooks) {
-            totalBooksWidth += b.getWidth();
+    public void rotateBook(int index) {
+        if ((index < this.plankBooks.size()) && (index >= 0)) {
+
+            int difference = this.plankBooks.get(index).getWidth() - this.plankBooks.get(index).getThickness();
+
+            if (this.plankBooks.get(index).getOrientation() == Orientation.SPINE) {
+                if ((getBooksThickness() + difference) < this.width) {
+                    this.plankBooks.get(index).setOrientation(Orientation.COVER);
+                    return;
+                }
+            } else {
+                if ((getBooksThickness() - difference) < this.width) {
+                    this.plankBooks.get(index).setOrientation(Orientation.SPINE);
+                    return;
+                }
+            }
         }
 
-        return totalBooksWidth;
+        // TODO Can't rotate book error!
+
+
     }
+
+
+
+    public int getBooksThickness(){
+        int totalBooksThickness = 0;
+        for (Book b : plankBooks) {
+            if (b.getOrientation() == Orientation.SPINE) {
+                totalBooksThickness += b.getThickness();
+            } else {
+                totalBooksThickness += b.getWidth();
+            }
+        }
+        return totalBooksThickness;
+    }
+
+
+
+
+    @Override
+    public String toString() {
+        StringBuilder returnString = new StringBuilder("== Plank ==\n");
+        for (Book b : plankBooks) {
+            returnString.append(b);
+        }
+        return returnString.toString();
+    }
+
+
+
 }
