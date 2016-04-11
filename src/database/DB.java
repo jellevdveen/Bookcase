@@ -1,5 +1,9 @@
 package database;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,6 +13,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import bookcase.model.*;
+
+import static java.awt.SystemColor.text;
 
 /**
  * Created by Kyra on 05/04/2016.
@@ -40,7 +46,11 @@ public class DB implements DBConstants {
         }
     }
 
-
+    public String getUserSalt(String userName) throws SQLException {
+        ResultSet resultSet = statement.executeQuery(
+                "select ");
+        return null;
+    }
 
     public ArrayList<Book> getAllBooks() throws SQLException {
         // ResultSet is initially before the first data set
@@ -75,12 +85,13 @@ public class DB implements DBConstants {
         // else: add book to database
     }
 
-    public void addUser() {
+    public void addUser(String userName, String password) {
 
     }
 
     public static void main(String[] args) {
         DB obj = new DB();
-        obj.readDataBase();
+        obj.addUser("Kyra", "hallo");
+//        obj.readDataBase();
     }
 }
